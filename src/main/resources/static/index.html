@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Finder</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+
+</head>
+<body>
+    <header>
+        <h1 id="weather-app-title">THE WEATHER APP</h1>
+    </header>
+
+    <main>
+        <form id="weatherForm">
+            <fieldset>
+                <legend>OPTIONS</legend>
+                <label for="citychoice">City choice:</label>
+                
+                <select name="City" id="City" required>
+                    <option value="" disabled selected>Choose a city</option>
+                    <option value="Calgary">Calgary</option>
+                    <option value="Edmonton">Edmonton</option>
+                    <option value="Montreal">Montreal</option>
+                    <option value="Ottawa">Ottawa</option>
+                    <option value="Quebec City">Quebec City</option>
+                    <option value="Surrey">Surrey</option>
+                    <option value="Toronto">Toronto</option>
+                    <option value="Vancouver">Vancouver</option>
+                    <option value="Victoria">Victoria</option>
+                    <option value="Winnipeg">Winnipeg</option>
+                </select>
+                
+                <button type="submit">View</button>
+            </fieldset>
+        </form>
+
+        <div id="loading" style="display: none;">Loading weather data...</div>
+        <div id="displayweather"></div>
+
+        <h2>Cities with avalaible weather data:</h2>
+        <ul>
+            <li class="selectCity">Calgary</li>
+            <li class="selectCity">Edmonton</li>
+            <li class="selectCity">Montreal</li>
+            <li class="selectCity">Ottawa</li>
+            <li class="selectCity">Quebec City</li>
+            <li class="selectCity">Surrey</li>
+            <li class="selectCity">Toronto</li>
+            <li class="selectCity">Vancouver</li>
+            <li class="selectCity">Victoria</li>
+            <li class="selectCity">Winnipeg</li>
+        </ul>
+    </main>
+
+</body>
+<footer>
+
+</footer>
+
+</html>
