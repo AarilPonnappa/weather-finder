@@ -5,7 +5,6 @@ const selectedCity = document.getElementById('City');
 const CityWeather = document.querySelectorAll('.selectCity');
 
 
-
 function PrintWeather(city, temp, rain, humidity, wind) {
     displayweather.innerHTML = `<div style="border: 2px solid #3842f9; padding: 15px;">
             <h3>Weather in ${city}:</h3>
