@@ -20,6 +20,7 @@ AI was used to provide suggestions for improving the visual appearance and inter
 
 AI was used as a learning resource to understand what APIs are and how they work, the fetch() function, the structure and purpose of "try", "catch", and "finally" syntax and the usage of getElementById() and innerHTML.  
 
+AI was also used to understand how the Open-Meteo API works. It explained that weather data cannot be requested directly using a city name. Instead we use the city's latitude and longitude to then get the coordinates to retrieve the weather data.
 AI was also used to understand how the Open-Meteo API works. It explained that weather data cannot be requested directly using a city name. Instead we use the city's latitude and longitude to then get the coordinates to display the weather data.
 
 During testing, I noticed that the application sometimes failed to consistently display weather data. AI suggested using "async" and "await" to properly handle the API calls, which improved reliability.

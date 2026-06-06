@@ -16,6 +16,35 @@ function PrintWeather(city, temp, rain, humidity, wind) {
 }
 
 
+weatherForm.addEventListener('submit', async function(evn) {
+    evn.preventDefault();
+    const city = selectedCity.value;
+
+    try {
+        loading.style.display = "block";
+        displayweather.innerHTML = "";
+
+        const ReturnAPI = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`);
+        const Data = await ReturnAPI.json();
+        const latitude = Data.results[0].latitude;
+        const longitude = Data.results[0].longitude;
+        const weatherAPI = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m,relative_humidity_2m,rain`);
+
+        const weatherData = await weatherAPI.json();
+        const temperature = weatherData.current.temperature_2m;
+        const rain = weatherData.current.rain;
+        const windspeed = weatherData.current.wind_speed_10m;
+        const humidity = weatherData.current.relative_humidity_2m
+        PrintWeather(city, temperature, rain, humidity, windspeed);
+
+    } catch (error) {
+        displayweather.innerHTML = `<p style="color: red;"> Error: Unable to retrieve weather data.</p>`;
+    } finally {
+        loading.style.display = "none";
+    }
+});
+
+
 async function WeatherList(city) {
     try {
         loading.style.display = "block";
@@ -25,8 +54,8 @@ async function WeatherList(city) {
         const Data = await ReturnAPI.json();
         const latitude = Data.results[0].latitude;
         const longitude = Data.results[0].longitude;
-
         const weatherAPI = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,wind_speed_10m,relative_humidity_2m,rain`);
+        
         const weatherData = await weatherAPI.json();
         const temperature = weatherData.current.temperature_2m;
         const rain = weatherData.current.rain;
